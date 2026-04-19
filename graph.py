@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 from langgraph.graph import StateGraph
 from typing import TypedDict, Dict
-from .prompts import *
+from prompts import *
 
 load_dotenv()
 
