@@ -1,50 +1,33 @@
-# Auto Code Builder (LangGraph + LLM)
+🤖 Auto Code Builder (LangGraph + LLM)
 
-An **AI-powered multi-agent code generation system** that automatically creates a full project structure from a simple natural language prompt.
+An AI-powered multi-agent code generation system that automatically creates a complete project structure from a simple natural language prompt.
 
-The system uses a **LangGraph agent pipeline** where different AI agents collaborate to:
+This system leverages a LangGraph agent pipeline, where multiple AI agents collaborate to:
 
-1. Plan the project  
-2. Design the architecture  
-3. Generate the code files  
+Plan the project
+Design the architecture
+Generate production-ready code files
 
-Users simply describe the application they want, and the system produces a **ready-to-use codebase**.
+Users only need to describe their idea — the system generates a fully structured, ready-to-use codebase.
 
----
+🚀 Project Demo
+Application Interface
 
-# Project Demo
+Generated Code Files
 
-## Application Interface
+Features
+AI-powered automatic code generation
+Multi-agent architecture using LangGraph
+Generates complete multi-file projects
+Automatic project planning
+Intelligent architecture design
+Generates both frontend and backend code
+Clean interactive Streamlit UI
+Automatically saves generated code to project folder
+System Architecture
 
-![Auto Code Builder UI](UI.png)
+The system follows a multi-agent workflow pipeline, where each agent performs a specialized task.
 
----
-
-## Generated Code Files
-
-![Generated Files](code.png)
-
----
-
-# Features
-
-- AI-powered **automatic code generation**
-- **Multi-agent architecture** using LangGraph
-- Generates **multiple files for a project**
-- Automatic **project planning**
-- Automatic **architecture design**
-- Generates **frontend and backend code**
-- Clean **interactive UI**
-- Automatically saves generated code to project folder
-
----
-
-# System Architecture
-
-
-The project follows a **multi-agent workflow architecture** where each agent performs a specific task.
-
-<pre>
 User Prompt
       ↓
 Planner Agent
@@ -54,42 +37,35 @@ Architect Agent
 Coder Agent
       ↓
 Generated Code Files
-</pre>
 
-    
-Each agent updates a **shared state** that flows through the LangGraph pipeline.
+Each agent communicates through a shared state, enabling seamless collaboration across the LangGraph pipeline.
 
----
+Agents Overview
+Planner Agent
 
-# Agents Explanation
+The Planner Agent interprets the user's request and creates a high-level development plan.
 
-## Planner Agent
+Example Output:
+Project goal
+Key features
+Suggested technologies
+Architect Agent
 
-The **Planner Agent** understands the user's request and generates a **high-level development plan**.
+The Architect Agent transforms the plan into a technical system design.
 
-Example output:
+Example Output:
+Project structure
+Required files
+Component responsibilities
+Coder Agent
 
-- Project goal
-- Required features
-- Suggested technologies
+The Coder Agent generates the actual source code files based on the architecture.
 
----
-
-## Architect Agent
-
-The **Architect Agent** converts the plan into a **technical design**.
-
-Example output:
-
-- Project structure
-- Required files
-- Responsibilities of each component
-
-
----
-## Project Structure
-
-<pre>
+Responsibilities:
+Create project folders
+Generate code for each file
+Ensure modular and clean structure
+📁 Project Structure
 auto-code-builder
 │
 ├── agents
@@ -97,9 +73,9 @@ auto-code-builder
 │   ├── prompts.py
 │
 ├── app
-│   └── streamlit\_app.py
+│   └── streamlit_app.py
 │
-├── generated\_project
+├── generated_project
 │
 ├── assets
 │   ├── ui.png
@@ -107,11 +83,26 @@ auto-code-builder
 │
 ├── requirements.txt
 └── README.md
+Live Demo
 
-  </pre>
-
-
-Auto Code Builder (LangGraph + LLM)
-
-🚀 Live Demo:
 👉 https://ai-auto-code-builder-using-langgraph-and-llm-agents-cgvcvzsavp.streamlit.app/
+
+⚙️ Installation
+git clone https://github.com/your-username/auto-code-builder.git
+cd auto-code-builder
+pip install -r requirements.txt
+streamlit run app/streamlit_app.py
+Tech Stack
+LangGraph
+LLMs (Groq / OpenAI / Gemini)
+Streamlit
+Python
+Future Improvements
+Add support for more frameworks (React, FastAPI, etc.)
+Improve code quality with testing agents
+Add deployment automation
+Enable real-time editing of generated code
+👨‍💻 Author
+
+Yugaram
+Department of Artificial Intelligence and Data Science
