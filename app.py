@@ -1,5 +1,12 @@
+import sys
+import os
+
+# --- Fix import path for Streamlit Cloud ---
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, BASE_DIR)
+
 import streamlit as st
-from agent.graph import agent, save_files
+from graph import agent, save_files  # ✅ Fixed: graph.py is in root, not agent/
 
 # --- Page Config ---
 st.set_page_config(
@@ -8,21 +15,21 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- Custom Styling ---
+# --- Custom UI Styling ---
 st.markdown("""
 <style>
 
-/* Main background */
+/* Background */
 .stApp {
     background: linear-gradient(135deg, #0f172a, #1e293b);
     color: #e2e8f0;
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* Center container */
+/* Layout width */
 .block-container {
-    padding-top: 2rem;
     max-width: 1100px;
+    padding-top: 2rem;
 }
 
 /* Title */
@@ -42,7 +49,7 @@ st.markdown("""
     margin-bottom: 30px;
 }
 
-/* Card UI */
+/* Card */
 .card {
     background: #1e293b;
     padding: 25px;
@@ -82,14 +89,9 @@ textarea {
     color: #38bdf8;
 }
 
-/* Code block */
+/* Code */
 pre {
     border-radius: 10px !important;
-}
-
-/* Success box */
-.stAlert {
-    border-radius: 10px;
 }
 
 </style>
@@ -99,12 +101,12 @@ pre {
 st.markdown('<div class="main-title">💻 Auto Code Builder</div>', unsafe_allow_html=True)
 st.markdown('<div class="subtitle">Turn your idea into working code instantly</div>', unsafe_allow_html=True)
 
-# --- Input Section ---
+# --- Input Card ---
 st.markdown('<div class="card">', unsafe_allow_html=True)
 
 user_prompt = st.text_area(
     "📝 Describe your project",
-    placeholder="Example: Build a full-stack todo app with authentication using FastAPI and React...",
+    placeholder="Example: Build a todo app with FastAPI backend and React frontend...",
     height=180
 )
 
@@ -112,16 +114,15 @@ generate_btn = st.button("🚀 Generate Code")
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-# --- Tips Section ---
+# --- Tips ---
 with st.expander("💡 Tips for better results"):
     st.write("""
-    - Clearly describe features  
-    - Mention frameworks or languages  
-    - Add constraints (e.g., "simple UI", "REST API only")  
-    - Example: *"Create a blog API using FastAPI with JWT auth"*  
+    - Be clear about features  
+    - Mention tech stack (Python, React, etc.)  
+    - Add constraints (simple UI, REST API, etc.)  
     """)
 
-# --- Generation Logic ---
+# --- Main Logic ---
 if generate_btn:
     if not user_prompt.strip():
         st.warning("⚠️ Please enter a project description.")
@@ -136,7 +137,7 @@ if generate_btn:
 
                 save_files(code_files)
 
-                st.success(f"✅ Successfully generated {len(code_files)} files!")
+                st.success(f"✅ Generated {len(code_files)} file(s)!")
 
                 # --- Output Section ---
                 st.markdown('<div class="card">', unsafe_allow_html=True)
@@ -153,7 +154,6 @@ if generate_btn:
 
                 st.markdown("### 📂 Generated Files")
 
-                # File viewer
                 for filename, content in code_files.items():
                     with st.expander(f"📄 {filename}"):
                         ext = filename.split(".")[-1] if "." in filename else "text"
