@@ -7,10 +7,16 @@ from prompts import *
 
 load_dotenv()
 
-llm = ChatGroq(
-    model="llama-3.3-70b-versatile",
-    api_key=os.getenv("GROQ_API_KEY")
-)
+def get_llm():
+    api_key = os.getenv("GROQ_API_KEY")
+    if not api_key:
+        raise ValueError("GROQ_API_KEY not set in environment/secrets!")
+    return ChatGroq(
+        model="llama-3.3-70b-versatile",
+        api_key=api_key
+    )
+
+llm = get_llm()
 
 
 class AgentState(TypedDict):
