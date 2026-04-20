@@ -77,10 +77,6 @@ auto-code-builder
 │
 ├── generated_project
 │
-├── assets
-│   ├── ui.png
-│   └── files.png
-│
 ├── requirements.txt
 └── README.md
 Live Demo
@@ -102,7 +98,7 @@ Add support for more frameworks (React, FastAPI, etc.)
 Improve code quality with testing agents
 Add deployment automation
 Enable real-time editing of generated code
-👨‍💻 Author
 
+👨‍💻 Author
 Yugaram
 Department of Artificial Intelligence and Data Science
