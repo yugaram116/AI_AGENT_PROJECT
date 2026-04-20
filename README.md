@@ -1,104 +1,142 @@
-🤖 Auto Code Builder (LangGraph + LLM)
+# 💻 Auto Code Builder
 
-An AI-powered multi-agent code generation system that automatically creates a complete project structure from a simple natural language prompt.
+An **AI-powered multi-agent code generation system** that converts natural language ideas into a complete, working codebase.
 
-This system leverages a LangGraph agent pipeline, where multiple AI agents collaborate to:
+Built using **LangGraph + LLM agents**, this project simulates a real-world software development workflow where multiple agents collaborate to plan, design, and generate code.
 
-Plan the project
-Design the architecture
-Generate production-ready code files
+---
 
-Users only need to describe their idea — the system generates a fully structured, ready-to-use codebase.
+## 🚀 Live Demo
 
-🚀 Project Demo
-Application Interface
+👉 [https://aiagentproject-1.streamlit.app/](https://aiagentproject-1.streamlit.app/)
 
-Generated Code Files
+---
 
-Features
-AI-powered automatic code generation
-Multi-agent architecture using LangGraph
-Generates complete multi-file projects
-Automatic project planning
-Intelligent architecture design
-Generates both frontend and backend code
-Clean interactive Streamlit UI
-Automatically saves generated code to project folder
-System Architecture
+## 📸 Preview
 
-The system follows a multi-agent workflow pipeline, where each agent performs a specialized task.
+### 🖥️ Application UI
 
+![UI](assets/ui.png)
+
+### 📂 Generated Code Output
+
+![Output](assets/files.png)
+
+---
+
+## ✨ Features
+
+* 🤖 AI-powered code generation from simple text prompts
+* 🧠 Multi-agent system (Planner → Architect → Coder)
+* 📁 Generates complete multi-file projects
+* 🏗️ Automatic project planning and architecture design
+* 🌐 Supports frontend and backend generation
+* 🎨 Clean Streamlit-based UI
+* 💾 Automatically saves generated files locally
+
+---
+
+## 🧠 How It Works
+
+```
 User Prompt
-      ↓
+     ↓
 Planner Agent
-      ↓
+     ↓
 Architect Agent
-      ↓
+     ↓
 Coder Agent
-      ↓
+     ↓
 Generated Code Files
+```
 
-Each agent communicates through a shared state, enabling seamless collaboration across the LangGraph pipeline.
+Each agent contributes to building the final project step-by-step.
 
-Agents Overview
-Planner Agent
+---
 
-The Planner Agent interprets the user's request and creates a high-level development plan.
+## 🤖 Agents
 
-Example Output:
-Project goal
-Key features
-Suggested technologies
-Architect Agent
+### Planner Agent
 
-The Architect Agent transforms the plan into a technical system design.
+* Understands the user prompt
+* Creates a high-level plan
 
-Example Output:
-Project structure
-Required files
-Component responsibilities
-Coder Agent
+### Architect Agent
 
-The Coder Agent generates the actual source code files based on the architecture.
+* Designs project structure
+* Defines components and responsibilities
 
-Responsibilities:
-Create project folders
-Generate code for each file
-Ensure modular and clean structure
-📁 Project Structure
-auto-code-builder
+### Coder Agent
+
+* Generates actual code files
+* Produces ready-to-run code
+
+---
+
+## 📂 Project Structure
+
+```
+auto-code-builder/
 │
-├── agents
-│   ├── graph.py
-│   ├── prompts.py
+├── app.py
+├── graph.py
+├── prompts.py
+├── generated_project/
 │
-├── app
-│   └── streamlit_app.py
-│
-├── generated_project
+├── assets/
+│   ├── ui.png
+│   └── files.png
 │
 ├── requirements.txt
 └── README.md
-Live Demo
+```
 
-👉 https://ai-auto-code-builder-using-langgraph-and-llm-agents-cgvcvzsavp.streamlit.app/
+---
 
-⚙️ Installation
+## ⚙️ Installation
+
+```bash
 git clone https://github.com/your-username/auto-code-builder.git
 cd auto-code-builder
-pip install -r requirements.txt
-streamlit run app/streamlit_app.py
-Tech Stack
-LangGraph
-LLMs (Groq / OpenAI / Gemini)
-Streamlit
-Python
-Future Improvements
-Add support for more frameworks (React, FastAPI, etc.)
-Improve code quality with testing agents
-Add deployment automation
-Enable real-time editing of generated code
 
-👨‍💻 Author
-Yugaram
-Department of Artificial Intelligence and Data Science
+python -m venv venv
+source venv/bin/activate   # Linux / Mac
+venv\Scripts\activate      # Windows
+
+pip install -r requirements.txt
+```
+
+---
+
+## 🔑 Environment Variables
+
+Create a `.env` file:
+
+```
+GROQ_API_KEY=your_api_key_here
+```
+
+---
+
+## ▶️ Run the App
+
+```bash
+streamlit run app.py
+```
+
+---
+
+## 🧪 Example
+
+```
+Build a blog app with FastAPI backend and React frontend with authentication.
+```
+
+## 🚧 Future Improvements
+
+* Download generated code as ZIP
+* More frameworks support
+* Deployment-ready projects
+
+---
+
